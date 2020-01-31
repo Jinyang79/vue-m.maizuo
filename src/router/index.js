@@ -5,10 +5,15 @@ import Nowplaying from '@/views/Film/Nowplaying'
 import Comingsoon from '@/views/Film/Comingsoon'
 import Cinema from '@/views/Cinema'
 import Center from '@/views/Center'
+import Detail from '@/views/Detail'
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '*',
+    redirect: '/film'
+  },
   {
     path: '/film',
     component: Film,
@@ -36,9 +41,12 @@ const routes = [
     component: Center
   },
   {
-    path: '*',
-    redirect: '/film'
+    path: '/detail/:id',
+    name: 'detail',
+    component: Detail,
+    props: true
   }
+
 ]
 
 const router = new VueRouter({

@@ -2,11 +2,14 @@
   <div>
     <ul>
       <li v-for="data in datalist"
-          :key="data.filmId">
+          :key="data.filmId"
+          @click="toDetail(data.filmId)">
         <img :src="data.poster">
-        <p>{{data.name}}</p>
-        <p>观众评分{{data.grade}}</p>
-        <p>主演:{{data.actors | actorfilter}}</p>
+        <div class="content">
+          <p>{{data.name}}</p>
+          <p>观众评分{{data.grade}}</p>
+          <p>主演:{{data.actors | actorfilter}}</p>
+        </div>
       </li>
     </ul>
   </div>
@@ -15,8 +18,10 @@
 import axios from 'axios'
 import Vue from 'vue'
 Vue.filter('actorfilter', data => {
-  const newList = data.map(item => item.name)
-  return newList.join(' ')
+  if (data) {
+    const newList = data.map(item => item.name)
+    return newList.join(' ')
+  }
 })
 export default {
   data () {
@@ -35,17 +40,31 @@ export default {
       console.log(res.data.data.films)
       this.datalist = res.data.data.films
     })
+  },
+  methods: {
+    toDetail (id) {
+      this.$router.push({ path: `/detail/${id}` })
+      // this.$router.push({ name: 'detail', params: { id: id } })
+    }
   }
 }
 </script>
 <style lang="scss" scoped>
+div {
+  padding-top: 44px;
+}
 ul {
   li {
     padding: 10px;
     overflow: hidden;
     img {
       float: left;
-      width: 100px;
+      width: 66px;
+    }
+    .content {
+      float: left;
+      width: 200px;
+      padding: 0 10px;
     }
   }
 }

@@ -25,4 +25,10 @@ ul {
   color: orangered;
   border-bottom: 2px solid orangered;
 }
+div {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
 </style>
