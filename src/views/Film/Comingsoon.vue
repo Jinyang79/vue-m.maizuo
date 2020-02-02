@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="data in dataList"
+      <li v-for="data in $store.state.comingSoonList"
           :key="data.filmId"
           @click="toDetail(data.filmId)">
         <img :src="data.poster">
@@ -15,19 +15,24 @@
   </div>
 </template>
 <script>
-import { getComingsoon } from '@/network/film/comingsoon'
+// import { getComingsoon } from '@/network/film/comingsoon'
 export default {
   name: 'Comingsoon',
   data () {
     return {
-      dataList: []
+      // dataList: []
     }
   },
   mounted () {
-    getComingsoon().then(res => {
-      console.log(res.data.data.films)
-      this.dataList = res.data.data.films
-    })
+    // getComingsoon().then(res => {
+    //   console.log(res.data.data.films)
+    //   this.dataList = res.data.data.films
+    // })
+    if (this.$store.state.comingSoonList.length === 0) {
+      this.$store.dispatch('getComingSoonListAction')
+    } else {
+      console.log('使用缓存数据')
+    }
   }
 }
 </script>
