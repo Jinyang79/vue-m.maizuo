@@ -1,15 +1,16 @@
 <template>
   <div>
-    <filmheader></filmheader>
+    <film-header></film-header>
     <router-view />
   </div>
 </template>
 
 <script>
-import filmheader from '@/views/Film/FilmHeader'
+import FilmHeader from '@/views/Film/FilmHeader'
 export default {
+  name: 'Film',
   components: {
-    filmheader
+    FilmHeader
   }
 }
 </script>

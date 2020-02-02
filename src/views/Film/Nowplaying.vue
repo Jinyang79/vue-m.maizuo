@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="data in datalist"
+      <li v-for="data in dataList"
           :key="data.filmId"
           @click="toDetail(data.filmId)">
         <img :src="data.poster">
@@ -24,15 +24,16 @@ Vue.filter('actorfilter', data => {
   }
 })
 export default {
+  name: 'Nowplaying',
   data () {
     return {
-      datalist: []
+      dataList: []
     }
   },
   mounted () {
     getNowplaying().then(res => {
       console.log(res.data.data.films)
-      this.datalist = res.data.data.films
+      this.dataList = res.data.data.films
     })
   },
   methods: {
@@ -46,6 +47,7 @@ export default {
 <style lang="scss" scoped>
 div {
   padding-top: 44px;
+  padding-bottom: 50px;
 }
 ul {
   li {
