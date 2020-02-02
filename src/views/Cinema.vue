@@ -7,7 +7,7 @@
   </div>
 </template>
 <script>
-import { getCinema } from '@/network/cinema'
+import { getCinema } from '@/network/cinema/cinema'
 export default {
   name: 'Cinema',
   data () {

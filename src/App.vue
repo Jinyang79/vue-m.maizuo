@@ -1,26 +1,26 @@
 <template>
   <div>
     <router-view />
-    <tabbar v-show="isShow"></tabbar>
+    <tabbar v-show="$store.state.isTabbarShow"></tabbar>
   </div>
 </template>
 <script>
 import Tabbar from '@/components/TabBar'
-import eventBus from '@/eventbus'
+// import eventBus from '@/eventbus'
 export default {
   name: 'App',
   components: { Tabbar },
   data () {
     return {
-      isShow: true
+      // isShow: true
     }
-  },
-  beforeMount () {
-    console.log('监听事件')
-    eventBus.$on('maizuo', (data) => {
-      this.isShow = data
-    })
   }
+  // beforeMount () {
+  //   console.log('监听事件')
+  //   eventBus.$on('maizuo', (data) => {
+  //     this.isShow = data
+  //   })
+  // }
 }
 </script>
 <style lang="scss" >

@@ -15,7 +15,7 @@
   </div>
 </template>
 <script>
-import { getNowplaying } from '@/network/nowplaying'
+import { getNowplaying } from '@/network/film/nowplaying'
 import Vue from 'vue'
 Vue.filter('actorfilter', data => {
   if (data) {

@@ -1,4 +1,4 @@
-import { request } from './request'
+import { request } from '../request'
 export function getDetail (id) {
   return request({
     url: `/gateway?filmId=${id}&k=5991020`,

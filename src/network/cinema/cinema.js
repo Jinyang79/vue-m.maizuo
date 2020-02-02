@@ -1,4 +1,4 @@
-import { request } from './request'
+import { request } from '../request'
 export function getCinema () {
   return request({
     url: '/gateway?cityId=110100&ticketFlag=1&k=6842504',

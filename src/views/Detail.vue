@@ -10,10 +10,10 @@
   </div>
 </template>
 <script>
-import { getDetail } from '@/network/detail'
+import { getDetail } from '@/network/film/detail'
 import ActorSwiper from './Detail/ActorSwiper'
 import PhotoSwiper from './Detail/PhotoSwiper'
-import eventBus from '@/eventbus'
+// import eventBus from '@/eventbus'
 export default {
   name: 'Detail',
   components: {
@@ -27,8 +27,9 @@ export default {
     }
   },
   beforeMount () {
-    console.log('触发事件')
-    eventBus.$emit('maizuo', false)
+    //   console.log('触发事件')
+    //   eventBus.$emit('maizuo', false)
+    this.$store.commit('hideTabbar', false)
   },
   mounted () {
     console.log(this.id)
@@ -38,8 +39,9 @@ export default {
     })
   },
   beforeDestroy () {
-    console.log('销毁事件')
-    eventBus.$emit('maizuo', true)
+    //   console.log('销毁事件')
+    //   eventBus.$emit('maizuo', true)
+    this.$store.commit('showTabbar', true)
   }
 
 }
