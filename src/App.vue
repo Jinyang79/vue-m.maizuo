@@ -1,11 +1,12 @@
 <template>
   <div>
     <router-view />
-    <tabbar v-show="$store.state.isTabbarShow"></tabbar>
+    <tabbar v-show="isTabbarShow"></tabbar>
   </div>
 </template>
 <script>
 import Tabbar from '@/components/TabBar'
+import { mapState } from 'vuex'
 // import eventBus from '@/eventbus'
 export default {
   name: 'App',
@@ -14,6 +15,9 @@ export default {
     return {
       // isShow: true
     }
+  },
+  computed: {
+    ...mapState(['isTabbarShow'])
   }
   // beforeMount () {
   //   console.log('监听事件')

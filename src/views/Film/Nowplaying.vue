@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="data in $store.state.nowPlayingList"
+      <li v-for="data in nowPlayingList"
           :key="data.filmId"
           @click="toDetail(data.filmId)">
         <img :src="data.poster">
@@ -17,6 +17,7 @@
 <script>
 import Vue from 'vue'
 // import { getNowplaying } from '@/network/film/nowplaying'
+import { mapState } from 'vuex'
 Vue.filter('actorfilter', data => {
   if (data) {
     const newList = data.map(item => item.name)
@@ -30,13 +31,16 @@ export default {
       // dataList: []
     }
   },
+  computed: {
+    ...mapState(['nowPlayingList'])
+  },
   mounted () {
     // getNowplaying().then(res => {
     //   console.log(res.data.data.films)
     //   this.dataList = res.data.data.films
     // })
     if (this.$store.state.nowPlayingList.length === 0) {
-      this.$store.dispatch('getNowPlayingListAction')
+      this.$store.dispatch('getNowPlayingList')
     } else {
       console.log('使用缓存数据')
     }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="data in $store.state.comingSoonList"
+      <li v-for="data in comingSoonList"
           :key="data.filmId"
           @click="toDetail(data.filmId)">
         <img :src="data.poster">
@@ -16,6 +16,7 @@
 </template>
 <script>
 // import { getComingsoon } from '@/network/film/comingsoon'
+import { mapState } from 'vuex'
 export default {
   name: 'Comingsoon',
   data () {
@@ -23,15 +24,24 @@ export default {
       // dataList: []
     }
   },
+  computed: {
+    ...mapState(['comingSoonList'])
+  },
   mounted () {
     // getComingsoon().then(res => {
     //   console.log(res.data.data.films)
     //   this.dataList = res.data.data.films
     // })
     if (this.$store.state.comingSoonList.length === 0) {
-      this.$store.dispatch('getComingSoonListAction')
+      this.$store.dispatch('getComingSoonList')
     } else {
       console.log('使用缓存数据')
+    }
+  },
+  methods: {
+    toDetail (id) {
+      this.$router.push({ path: `/detail/${id}` })
+      // this.$router.push({ name: 'detail', params: { id: id } })
     }
   }
 }

@@ -13,6 +13,7 @@
 import { getDetail } from '@/network/film/detail'
 import ActorSwiper from './Detail/ActorSwiper'
 import PhotoSwiper from './Detail/PhotoSwiper'
+import { HIDE_TABBAR, SHOW_TABBAR } from '@/type'
 // import eventBus from '@/eventbus'
 export default {
   name: 'Detail',
@@ -29,7 +30,7 @@ export default {
   beforeMount () {
     //   console.log('触发事件')
     //   eventBus.$emit('maizuo', false)
-    this.$store.commit('hideTabbar', false)
+    this.$store.commit(HIDE_TABBAR, false)
   },
   mounted () {
     console.log(this.id)
@@ -41,7 +42,7 @@ export default {
   beforeDestroy () {
     //   console.log('销毁事件')
     //   eventBus.$emit('maizuo', true)
-    this.$store.commit('showTabbar', true)
+    this.$store.commit(SHOW_TABBAR, true)
   }
 
 }
