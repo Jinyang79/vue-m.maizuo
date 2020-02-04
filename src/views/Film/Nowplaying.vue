@@ -39,7 +39,7 @@ export default {
     //   console.log(res.data.data.films)
     //   this.dataList = res.data.data.films
     // })
-    if (this.$store.state.nowPlayingList.length === 0) {
+    if (this.nowPlayingList.length === 0) {
       this.$store.dispatch('getNowPlayingList')
     } else {
       console.log('使用缓存数据')
@@ -55,7 +55,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 div {
-  padding-top: 44px;
   padding-bottom: 50px;
 }
 ul {

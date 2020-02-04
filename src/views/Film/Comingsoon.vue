@@ -3,7 +3,7 @@
     <ul>
       <li v-for="data in comingSoonList"
           :key="data.filmId"
-          @click="toDetail(data.filmId)">
+          @click="toDetail(data.filmId,data.isPresale)">
         <img :src="data.poster">
         <div class="content">
           <p>{{data.name}}</p>
@@ -17,6 +17,7 @@
 <script>
 // import { getComingsoon } from '@/network/film/comingsoon'
 import { mapState } from 'vuex'
+import { MessageBox } from 'mint-ui'
 export default {
   name: 'Comingsoon',
   data () {
@@ -32,14 +33,24 @@ export default {
     //   console.log(res.data.data.films)
     //   this.dataList = res.data.data.films
     // })
-    if (this.$store.state.comingSoonList.length === 0) {
+    if (this.comingSoonList.length === 0) {
       this.$store.dispatch('getComingSoonList')
     } else {
       console.log('使用缓存数据')
     }
   },
   methods: {
-    toDetail (id) {
+    toDetail (id, data) {
+      if (!data) {
+        MessageBox({
+          message: '该影片目前没有排期，到首页看其他电影吧',
+          showCancelButton: true
+        }).then(res => {
+          if (res === 'confirm') {
+            this.$router.push(`/film`)
+          }
+        })
+      }
       this.$router.push({ path: `/detail/${id}` })
       // this.$router.push({ name: 'detail', params: { id: id } })
     }
@@ -48,7 +59,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 div {
-  padding-top: 44px;
   padding-bottom: 50px;
 }
 ul {

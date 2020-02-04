@@ -6,6 +6,7 @@ import Comingsoon from '@/views/Film/Comingsoon'
 import Cinema from '@/views/Cinema'
 import Center from '@/views/Center'
 import Detail from '@/views/Detail'
+import City from '@/views/City'
 
 Vue.use(VueRouter)
 
@@ -45,6 +46,10 @@ const routes = [
     name: 'detail',
     component: Detail,
     props: true
+  },
+  {
+    path: '/city',
+    component: City
   }
 
 ]
