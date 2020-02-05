@@ -17,7 +17,8 @@ export default {
     }
   },
   mounted () {
-    getHeaderSwiper().then(res => {
+    const id = localStorage.getItem('cityId')
+    getHeaderSwiper(id).then(res => {
       console.log(res.data.data)
       this.dataList = res.data.data
     })

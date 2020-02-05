@@ -3,6 +3,7 @@
     <li v-for="data in dataList"
         :key="data.cinemaId">
       {{data.name}}
+      <p style="font-size:12px;">{{data.address}}</p>
     </li>
   </div>
 </template>
@@ -16,7 +17,8 @@ export default {
     }
   },
   mounted () {
-    getCinema().then(res => {
+    const id = localStorage.getItem('cityId')
+    getCinema(id).then(res => {
       console.log(res)
       this.dataList = res.data.data.cinemas
     })
@@ -24,7 +26,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+div {
+  padding-bottom: 50px;
+}
 li {
-  height: 50px;
+  height: 80px;
 }
 </style>

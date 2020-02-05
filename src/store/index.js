@@ -27,13 +27,15 @@ export default new Vuex.Store({
   },
   actions: {
     getComingSoonList (store) {
-      getComingsoon().then(res => {
+      const id = localStorage.getItem('cityId')
+      getComingsoon(id).then(res => {
         console.log(res.data.data.films)
         store.commit(COMING_SOON_LIST, res.data.data.films)
       })
     },
     getNowPlayingList (store) {
-      getNowplaying().then(res => {
+      const id = localStorage.getItem('cityId')
+      getNowplaying(id).then(res => {
         console.log(res.data.data.films)
         store.commit(NOW_PLAYING_LIST, res.data.data.films)
       })
