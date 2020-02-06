@@ -14,6 +14,7 @@
 <script>
 import { getCity } from '@/network/city'
 import { HIDE_TABBAR, SHOW_TABBAR } from '@/type'
+import { Indicator } from 'mint-ui'
 export default {
   data () {
     return {
@@ -24,9 +25,11 @@ export default {
     this.$store.commit(HIDE_TABBAR, false)
   },
   mounted () {
+    Indicator.open()
     getCity().then(res => {
       // console.log(res.data.data.cities)
       this.dataList = this.getCityList(res.data.data.cities)
+      Indicator.close()
     })
   },
   beforeDestroy () {
@@ -55,7 +58,8 @@ export default {
     handleClick (id) {
       // console.log(id)
       localStorage.setItem('cityId', id)
-      this.$router.push('/cinema')
+      this.$router.push('/film')
+      this.$router.go(0)
     }
 
   }

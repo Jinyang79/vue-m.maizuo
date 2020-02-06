@@ -1,7 +1,7 @@
 <template>
   <div>
-    <header-swiper></header-swiper>
-    <film-header></film-header>
+    <header-swiper ref="myswiper"></header-swiper>
+    <film-header :class="isFixed ? 'fixed' : ''"></film-header>
     <router-view />
   </div>
 </template>
@@ -14,9 +14,37 @@ export default {
   components: {
     FilmHeader,
     HeaderSwiper
+  },
+  data () {
+    return {
+      isFixed: false
+    }
+  },
+  mounted () {
+    window.onscroll = this.hanleScroll
+  },
+  beforeDestroy () {
+    window.onscroll = ''
+  },
+  methods: {
+    hanleScroll () {
+      if (document.documentElement.scrollTop >= 200) {
+        this.isFixed = true
+      } else {
+        this.isFixed = false
+      }
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+}
 </style>
