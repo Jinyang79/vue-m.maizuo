@@ -58,8 +58,8 @@ export default {
     handleClick (id) {
       // console.log(id)
       localStorage.setItem('cityId', id)
-      this.$router.push('/film')
-      this.$router.go(0)
+      // this.$router.push('/film')
+      this.$router.go(-1)
     }
 
   }

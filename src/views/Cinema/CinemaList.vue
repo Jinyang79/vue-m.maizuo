@@ -9,7 +9,7 @@
         </div>
         <div class="cinemaList_right">
           <div>
-            <span>￥{{ data.lowPrice / 100 }}</span>
+            <span>￥{{ parseInt(data.lowPrice / 100 )}}</span>
             <span class="upon">起</span>
           </div>
           <strong>距离</strong>
@@ -57,6 +57,7 @@ export default {
         width: calc(100% - 65px);
         text-align: left;
         padding-right: 15px;
+        float: left;
         span {
           display: block;
           max-width: 80%;
@@ -76,7 +77,7 @@ export default {
         }
       }
       .cinemaList_right {
-        width: 70px;
+        width: 57px;
         text-align: center;
         float: right;
         margin-right: -5px;
