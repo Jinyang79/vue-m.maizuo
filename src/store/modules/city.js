@@ -28,6 +28,27 @@ const city = {
         Indicator.close()
       })
     }
+  },
+  getters: {
+    cityListGetter: state => {
+      const letterArr = []
+      const newList = []
+      for (let i = 65; i < 91; i++) {
+        letterArr.push(String.fromCharCode(i))
+      }
+      // console.log(letterArr)
+      for (let j = 0; j < letterArr.length; j++) {
+        const arr = state.cityList.filter(item => item.pinyin.substring(0, 1) === letterArr[j].toLowerCase())
+        if (arr.length > 0) {
+          newList.push({
+            index: letterArr[j],
+            list: arr
+          })
+        }
+      }
+      console.log(newList)
+      return newList
+    }
   }
 }
 export default city

@@ -25,18 +25,27 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss" >
 #mint-swipe {
   height: 200px;
-  .mint-swipe-indicator {
+  .mint-swipe-indicators {
     left: auto !important;
     right: 12px !important;
     line-height: 5px;
     transform: translateX(0) !important;
     -webkit-transform: translateX(0) !important;
+    .mint-swipe-indicator {
+      width: 5px !important;
+      height: 5px !important;
+    }
+    .mint-swipe-indicator.is-active {
+      opacity: 1 !important;
+      background: #fff !important;
+    }
   }
   .swipe-img {
     width: 100%;
+    margin: 6px auto;
   }
 }
 </style>

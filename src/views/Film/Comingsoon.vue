@@ -1,14 +1,26 @@
 <template>
-  <div>
+  <div class="move">
     <ul>
       <li v-for="data in comingSoonList"
           :key="data.filmId"
           @click="toDetail(data.filmId,data.isPresale)">
         <img :src="data.poster">
-        <div class="content">
-          <p>{{data.name}}</p>
-          <p>观众评分{{data.grade}}</p>
-          <p>主演:{{data.actors | actorfilter}}</p>
+        <div class="movie_datails">
+          <div class="movie_datails_movieId">
+            <span class="name">{{data.name}}</span>
+            <span class="item">{{ data.filmType.name }}</span>
+          </div>
+          <div class="movie_datails_pingfen">
+            <span>{{ data.grade ? '观众评分 ' : '&nbsp;'}}</span>
+            <span class="number">{{ data.grade }}</span>
+          </div>
+          <div class="movie_datails_star">
+            <span>主演：{{ data.actors | actorFilter}}</span>
+          </div>
+          <div class="movie_datails_time">
+            <span>{{ data.nation }} | {{ data.runtime }}分钟</span>
+          </div>
+          <div class="movie_buy">购票</div>
         </div>
       </li>
     </ul>
@@ -43,8 +55,10 @@ export default {
       getComingSoonList: 'film/getComingSoonList'
     }),
 
-    toDetail (id, data) {
-      if (!data) {
+    toDetail (id, Presale) {
+      console.log(Presale)
+
+      if (!Presale) {
         MessageBox({
           message: '该影片目前没有排期，到首页看其他电影吧',
           showCancelButton: true
@@ -61,8 +75,8 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-div {
-  padding-bottom: 50px;
+.move {
+  padding-bottom: 60px;
 }
 ul {
   li {
@@ -72,10 +86,64 @@ ul {
       float: left;
       width: 66px;
     }
-    .content {
+    span {
+      font-size: 13px;
+      margin-top: 4px;
+      color: #797d82;
+    }
+    .movie_datails {
+      position: relative;
       float: left;
       width: 200px;
       padding: 0 10px;
+      .movie_datails_movieId {
+        span {
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .name {
+          max-width: calc(100% - 25px);
+          color: #191a1b;
+          font-size: 16px;
+          height: 22px;
+          line-height: 22px;
+          margin-right: 5px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .item {
+          font-size: 9px;
+          color: #fff;
+          background-color: #d2d6dc;
+          height: 14px;
+          line-height: 14px;
+          padding: 0 2px;
+          border-radius: 2px;
+        }
+      }
+      .movie_datails_pingfen {
+        visibility: visible;
+        .number {
+          color: #ffb232;
+          font-size: 14px;
+        }
+      }
+
+      .movie_buy {
+        line-height: 25px;
+        right: -50px;
+        top: 34px;
+        height: 25px;
+        width: 50px;
+        color: #ff5f16;
+        font-size: 13px;
+        text-align: center;
+        border-radius: 2px;
+        position: absolute;
+        float: right;
+        border: 1px solid #ff5f16;
+      }
     }
   }
 }

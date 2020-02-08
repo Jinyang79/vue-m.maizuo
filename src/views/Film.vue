@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     hanleScroll () {
-      if (document.documentElement.scrollTop >= 200) {
+      if (document.documentElement.scrollTop >= 195) {
         this.isFixed = true
       } else {
         this.isFixed = false
@@ -44,7 +44,7 @@ export default {
   left: 0;
   top: 0;
   width: 100%;
-  height: 40px;
+  height: 49px;
   background-color: #fff;
 }
 </style>

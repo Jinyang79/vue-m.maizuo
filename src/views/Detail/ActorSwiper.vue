@@ -4,7 +4,8 @@
     <swiper-slide v-for="(data,i) in actors"
                   :key="i">
       <img :src="data.avatarAddress">
-      <p>{{data.name}}</p>
+      <span class="actors_name">{{data.name}}</span>
+      <span class="role_name">{{ data.role }}</span>
     </swiper-slide>
   </swiper>
 </template>
@@ -38,5 +39,23 @@ export default {
 <style lang="scss" scoped>
 img {
   width: 85px;
+}
+.actors_name {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 12px;
+  color: #191a1b;
+  width: 80px;
+  height: 18px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.role_name {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  color: #797d82;
 }
 </style>
