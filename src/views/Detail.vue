@@ -10,10 +10,10 @@
   </div>
 </template>
 <script>
-import { getDetail } from '@/network/film/detail'
+import { getDetail } from '@/api/film/detail'
 import ActorSwiper from './Detail/ActorSwiper'
 import PhotoSwiper from './Detail/PhotoSwiper'
-import { HIDE_TABBAR, SHOW_TABBAR } from '@/type'
+import { HIDE_TABBAR, SHOW_TABBAR } from '@/store/mutation-types'
 // import eventBus from '@/eventbus'
 export default {
   name: 'Detail',

@@ -12,31 +12,34 @@
   </mt-index-list>
 </template>
 <script>
-import { getCity } from '@/network/city'
-import { HIDE_TABBAR, SHOW_TABBAR } from '@/type'
-import { Indicator } from 'mint-ui'
+import { mapState, mapActions } from 'vuex'
 export default {
   data () {
     return {
       dataList: []
     }
   },
-  beforeMount () {
-    this.$store.commit(HIDE_TABBAR, false)
-  },
-  mounted () {
-    Indicator.open()
-    getCity().then(res => {
-      // console.log(res.data.data.cities)
-      this.dataList = this.getCityList(res.data.data.cities)
-      Indicator.close()
+  computed: {
+    ...mapState({
+      cityList: state => state.city.cityList
     })
   },
+  beforeMount () {
+    this.$store.commit('city/hideTabbar', false)
+  },
+  mounted () {
+    // this.dataList = this.getCityList(res.data.data.cities)
+    this.getCityList()
+    this.dataList = this.getCityListFilter(this.cityList)
+  },
   beforeDestroy () {
-    this.$store.commit(SHOW_TABBAR, true)
+    this.$store.commit('city/showTabbar', true)
   },
   methods: {
-    getCityList (data) {
+    ...mapActions({
+      getCityList: 'city/getCityList'
+    }),
+    getCityListFilter (data) {
       const letterArr = []
       const newList = []
       for (let i = 65; i < 91; i++) {
@@ -56,7 +59,7 @@ export default {
       return newList
     },
     handleClick (id) {
-      // console.log(id)
+      console.log(id)
       localStorage.setItem('cityId', id)
       // this.$router.push('/film')
       this.$router.go(-1)

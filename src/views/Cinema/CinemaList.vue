@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <ul>
-      <li v-for="data in dataList"
+      <li v-for="data in cinemaList"
           :key="data.cinemaId">
         <div class="cinemaList_left">
           <span class="name">{{data.name}}</span>
@@ -19,22 +19,24 @@
   </div>
 </template>
 <script>
-import { getCinema } from '@/network/cinema/cinema'
-import { Indicator } from 'mint-ui'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'Cinema',
   data () {
     return {
-      dataList: []
     }
   },
+  computed: {
+    ...mapState({
+      cinemaList: state => state.cinema.cinemaList
+    })
+  },
   mounted () {
-    Indicator.open()
-    const id = localStorage.getItem('cityId')
-    getCinema(id).then(res => {
-      console.log(res)
-      this.dataList = res.data.data.cinemas
-      Indicator.close()
+    this.getCinemaList()
+  },
+  methods: {
+    ...mapActions({
+      getCinemaList: 'cinema/getCinemaList'
     })
   }
 }

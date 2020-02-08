@@ -8,7 +8,7 @@
   </mt-swipe>
 </template>
 <script>
-import { getHeaderSwiper } from '@/network/film/headerswiper'
+import { getHeaderSwiper } from '@/api/film/headerswiper'
 export default {
   name: 'HeaderSwiper',
   data () {

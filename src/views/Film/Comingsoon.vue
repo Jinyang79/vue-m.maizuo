@@ -15,8 +15,8 @@
   </div>
 </template>
 <script>
-// import { getComingsoon } from '@/network/film/comingsoon'
-import { mapState } from 'vuex'
+// import { getComingsoon } from '@/api/film/comingsoon'
+import { mapState, mapActions } from 'vuex'
 import { MessageBox } from 'mint-ui'
 export default {
   name: 'Comingsoon',
@@ -26,20 +26,23 @@ export default {
     }
   },
   computed: {
-    ...mapState(['comingSoonList'])
+    ...mapState({
+      comingSoonList: state => state.film.comingSoonList
+    })
   },
   mounted () {
-    // getComingsoon().then(res => {
-    //   console.log(res.data.data.films)
-    //   this.dataList = res.data.data.films
-    // })
+    // 判断是否用缓存数据
     if (this.comingSoonList.length === 0) {
-      this.$store.dispatch('getComingSoonList')
+      this.getComingSoonList()
     } else {
       console.log('使用缓存数据')
     }
   },
   methods: {
+    ...mapActions({
+      getComingSoonList: 'film/getComingSoonList'
+    }),
+
     toDetail (id, data) {
       if (!data) {
         MessageBox({

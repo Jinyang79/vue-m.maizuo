@@ -16,8 +16,9 @@
 </template>
 <script>
 import Vue from 'vue'
-// import { getNowplaying } from '@/network/film/nowplaying'
-import { mapState } from 'vuex'
+// import { getNowplaying } from '@/api/film/nowplaying'
+import { mapState, mapActions } from 'vuex'
+// 过滤器
 Vue.filter('actorfilter', data => {
   if (data) {
     const newList = data.map(item => item.name)
@@ -32,20 +33,21 @@ export default {
     }
   },
   computed: {
-    ...mapState(['nowPlayingList'])
+    ...mapState({
+      nowPlayingList: state => state.film.nowPlayingList
+    })
   },
   mounted () {
-    // getNowplaying().then(res => {
-    //   console.log(res.data.data.films)
-    //   this.dataList = res.data.data.films
-    // })
     if (this.nowPlayingList.length === 0) {
-      this.$store.dispatch('getNowPlayingList')
+      this.getNowPlayingList()
     } else {
       console.log('使用缓存数据')
     }
   },
   methods: {
+    ...mapActions({
+      getNowPlayingList: 'film/getNowPlayingList'
+    }),
     toDetail (id) {
       this.$router.push({ path: `/detail/${id}` })
       // this.$router.push({ name: 'detail', params: { id: id } })

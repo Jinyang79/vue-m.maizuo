@@ -17,7 +17,9 @@ export default {
     }
   },
   computed: {
-    ...mapState(['isTabbarShow'])
+    ...mapState({
+      isTabbarShow: state => state.city.isTabbarShow
+    })
   }
   // beforeMount () {
   //   console.log('监听事件')
