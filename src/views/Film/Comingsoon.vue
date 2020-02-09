@@ -20,8 +20,8 @@
           <div class="movie_datails_time">
             <span>{{ data.nation }} | {{ data.runtime }}分钟</span>
           </div>
-          <div class="movie_buy">购票</div>
         </div>
+        <div class="movie_buy">购票</div>
       </li>
     </ul>
   </div>
@@ -80,8 +80,10 @@ export default {
 }
 ul {
   li {
+    display: flex;
     padding: 10px;
     overflow: hidden;
+    align-items: center;
     img {
       float: left;
       width: 66px;
@@ -94,7 +96,7 @@ ul {
     .movie_datails {
       position: relative;
       float: left;
-      width: 200px;
+      width: calc(100% - 116px);
       padding: 0 10px;
       .movie_datails_movieId {
         span {
@@ -129,21 +131,19 @@ ul {
           font-size: 14px;
         }
       }
-
-      .movie_buy {
-        line-height: 25px;
-        right: -50px;
-        top: 34px;
-        height: 25px;
-        width: 50px;
-        color: #ff5f16;
-        font-size: 13px;
-        text-align: center;
-        border-radius: 2px;
-        position: absolute;
-        float: right;
-        border: 1px solid #ff5f16;
-      }
+    }
+    .movie_buy {
+      line-height: 25px;
+      float: right;
+      top: 34px;
+      height: 25px;
+      width: 50px;
+      color: #ff5f16;
+      font-size: 13px;
+      text-align: center;
+      border-radius: 2px;
+      float: right;
+      border: 1px solid #ff5f16;
     }
   }
 }
