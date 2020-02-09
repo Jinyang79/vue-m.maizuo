@@ -21,12 +21,6 @@ export default {
       isTabbarShow: state => state.city.isTabbarShow
     })
   }
-  // beforeMount () {
-  //   console.log('监听事件')
-  //   eventBus.$on('maizuo', (data) => {
-  //     this.isShow = data
-  //   })
-  // }
 }
 </script>
 <style lang="scss" >
