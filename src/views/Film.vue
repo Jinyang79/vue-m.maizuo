@@ -1,19 +1,22 @@
 <template>
   <div>
     <header-swiper ref="myswiper"></header-swiper>
+    <film-nav-bar v-if="isFixed"></film-nav-bar>
     <film-header :class="isFixed ? 'fixed' : ''"></film-header>
     <router-view />
   </div>
 </template>
 
 <script>
-import FilmHeader from '@/views/Film/FilmHeader'
-import HeaderSwiper from '@/views/Film/HeaderSwiper'
+import FilmHeader from './Film/FilmHeader'
+import HeaderSwiper from './Film/HeaderSwiper'
+import FilmNavBar from './Film/FilmNavBar'
 export default {
   name: 'Film',
   components: {
     FilmHeader,
-    HeaderSwiper
+    HeaderSwiper,
+    FilmNavBar
   },
   data () {
     return {
@@ -42,7 +45,7 @@ export default {
 .fixed {
   position: fixed;
   left: 0;
-  top: 0;
+  top: 44px;
   width: 100%;
   height: 49px;
   background-color: #fff;

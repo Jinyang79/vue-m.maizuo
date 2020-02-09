@@ -28,7 +28,7 @@ export default {
         // 所有的参数同 swiper 官方 api 参数
         // ...
         slidesPerView: 4,
-        spaceBetween: 10,
+        spaceBetween: 20,
         freeMode: true
       }
     }
@@ -39,13 +39,14 @@ export default {
 <style lang="scss" scoped>
 img {
   width: 85px;
+  height: 110px;
 }
 .actors_name {
   text-align: center;
   padding-top: 10px;
   font-size: 12px;
   color: #191a1b;
-  width: 80px;
+  width: 85px;
   height: 18px;
   display: block;
   overflow: hidden;
@@ -56,6 +57,7 @@ img {
   display: block;
   text-align: center;
   font-size: 10px;
+  width: 85px;
   color: #797d82;
 }
 </style>

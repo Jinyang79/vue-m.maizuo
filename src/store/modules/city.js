@@ -4,7 +4,9 @@ import { HIDE_TABBAR, SHOW_TABBAR, CITY_LIST } from '../mutation-types'
 const city = {
   namespaced: true,
   state: {
+    // 控制tabbar显示
     isTabbarShow: true,
+    // 城市列表
     cityList: []
   },
   mutations: {
@@ -30,6 +32,7 @@ const city = {
     }
   },
   getters: {
+    /* 城市列表 二维数组 */
     cityListGetter: state => {
       const letterArr = []
       const newList = []
@@ -48,6 +51,16 @@ const city = {
       }
       console.log(newList)
       return newList
+    },
+    /* 热门城市列表 */
+    hotCity (state) {
+      return state.cityList.filter(item => item.isHot)
+    },
+    // 当前城市
+    cityName (state) {
+      const id = parseInt(localStorage.getItem('cityId'))
+      console.log(id)
+      return state.cityList.find(item => item.cityId === id)
     }
   }
 }

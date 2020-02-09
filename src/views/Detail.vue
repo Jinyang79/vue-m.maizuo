@@ -78,6 +78,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+div {
+  box-sizing: border-box;
+  display: block;
+}
 .poster {
   width: 100%;
 }
@@ -147,11 +151,7 @@ export default {
   background-color: #fff;
   .actors_title {
     padding: 15px;
-    font-size: 16px;
-    text-align: left;
-    color: #191a1b;
-    height: 22.5px;
-    line-height: 22px;
+    width: 100%;
   }
   .actor-swiper {
     padding-left: 15px;
@@ -162,10 +162,8 @@ export default {
   height: 62px;
   .photos-title-text {
     padding: 15px;
-    font-size: 16px;
-    text-align: left;
-
-    line-height: 22px;
+    height: 62px;
+    width: 100%;
   }
   .photo-swiper {
     padding-left: 15px;

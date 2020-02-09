@@ -43,7 +43,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .content {
-  padding-top: 44px;
+  padding-top: 94px;
   padding-bottom: 50px;
   ul {
     list-style: none;

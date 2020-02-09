@@ -1,18 +1,18 @@
 <template>
   <div>
-    <nav-bar></nav-bar>
+    <cinema-nav-bar></cinema-nav-bar>
     <cinema-list></cinema-list>
   </div>
 </template>
 
 <script>
 import CinemaList from './Cinema/CinemaList'
-import NavBar from './Cinema/NavBar'
+import CinemaNavBar from './Cinema/CinemaNavBar'
 export default {
   name: 'Cinema',
   components: {
     CinemaList,
-    NavBar
+    CinemaNavBar
   }
 }
 </script>

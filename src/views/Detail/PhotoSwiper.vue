@@ -26,7 +26,7 @@ export default {
         // 所有的参数同 swiper 官方 api 参数
         // ...
         slidesPerView: 2.3,
-        spaceBetween: 10,
+        spaceBetween: 20,
         freeMode: true
 
       }
@@ -38,6 +38,8 @@ export default {
 <style lang="scss" scoped>
 * {
   height: 115px;
+  margin-bottom: 60px;
+  background-color: #fff;
 }
 img {
   width: 150px;
