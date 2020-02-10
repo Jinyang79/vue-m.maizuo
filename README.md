@@ -6,7 +6,9 @@
 
 ## 推荐浏览器扫码预览📷
 
-![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQQAAAEEBAMAAAA8Jlc5AAAAFVBMVEX///8A%0AAABPRWH237Tnm2CZgXj78+Cc5SCRAAAFFUlEQVR42u3c3XKiMBQHcBg7XuMr%0AYLl3jHq9o2kfIEqvndX1/R9hE0CEcE6IuIZ2/ac73daC+TXm8yQ2ipCQkNpp%0ARqek/lFSXxrr7253UM9yu678pn0HlQcIIIBAEBKioVaEVg5J69la2TF3zGoC%0AlwcIIIDAEKhb7H4hqjOJ7X6h9dPIvteRBwgg/ByCneLWOMeMnvYFIIAAQghC%0AYk9ayWlpEwgCCCDcSWCmr1TqHbapvmL4DBoEEEITHFEWqmENemx4oAcEEF6N%0A4LVPwI+KZJfRu/YcsFUBAgivRvAJ9MTMYE31JPZPuWApCCB8P0LMT0upKSi1%0AoKMypholtbsHAggg+J4n6X1q9/joCIf2dE0ggPDSBHfQ0hHKsVnc1iCzR8H9%0A+iCAMC6BGsWozXJ3fIRpxtTcOO4vDxBAeGmC175cbyunegP36PkQobd3AQGE%0An01ImLBNh+q5gZA446MJNX0F4SHCVIhjYIL9mJRyR1TegIQ3TZCLxwlM+NJn%0AfFwZwqdfcD92rymHES5CSpVJKTZjEaa6BD7S1BTEcSSCqQjbND10q0Mwwkp+%0AHAxBHbjq8HSClGmqin+jEsr0LwiO0Y6fE65oQkyhO5h7BlyecJaqFLzLX+MQ%0AJkWT1Clrt8qABN0zVqVwaPWQ4QinWmBeiUYxhCM0BKYcduEJk6oiXNvErYMc%0ASOBOofDteNUsBPNS7PjVpXtyO5RgFYIphtCEc7sQTG1YBCbcesYqZbd2GYYw%0ANaO09UrswhImXcKh7hoGEKglFvdYPVsxZZ9laZaq3Pxv2sSiMx12H9fsbgbc%0AQzgXBHFNa2UqQ1jCqmySeSnI2yN2GELdK+x1Edj1MRBhe8jL312Isk3mKnQp%0AbPM8V2V90J9Vlq/VIWgp6G5h/XX5/XUSmpBvLn/0Nw8RmH7BMcmcSrWeX06X%0Ay0kT1Oaik1pfCTF15LJ/iL6bsBXpl8l4LsQy01+s0+AEJVRqakPRInRdTLNl%0AWIKujvtl1SCqJjEfgVB0B0UHWQzb++W1UQYirLbzIueydyws29CED10P83xf%0ADRG57qnVdT0zhEBNLd27C3rGkomV/hDiZAw7/VEPUzFzTI07mjmQ8KabREkQ%0Am4Ig1u/X+UIgwkSqvWil5UFGQQlTaSpDlYrXQtUDZSBCURmuuRcpq1fXoQhn%0A65VY3uZtQwgRf1SEDVXqpUzWfCWspcy9mwFDCGZVWxbDviqEz+CEc7MY1lkz%0A7heKYIqhNqStsF8wwpsx7IoyMCGOxQiEMtCTmUlDO9ATkDAxIWhVRrtaQehh%0ABCq2Qp7ual59knU6Okc/KkduDL6PUBt2x2gsQhQJsyey6ZsD/FuC114pCM8n%0AzJ5D6H3LTfOipD9nR4/zvxD6DLMABHdtiEcndC94FoEauhijNyHxbE7c4WL3%0Aks0eb7vHVkAAAYSIC3063l7j2LWjjlfaz+d3wAwEEEDw+HOSiWf/4d4QpPqU%0ABAQQvjNhRh/od++3xcwBfeptcD3TVxBAAKF7CzXJbH/FENzXMXeAAAIIzncf%0A+MXPmMAo361wgSPvCCoIIAQlMK0nYZpsRL+5k8kuZoKlPdFXEEB4dULi3Kuj%0A4iiOOyhCT4cEAggg0HFHahuQWl0yA3jSO3ed8X9/AQQQfhoh4o8U28szLgjK%0AhEhBAAGEOwjMRNaxpnSfvPHejwABhJcn+E5f+b0HbgPdvW8BAgjfj+CIskT0%0Ascn47kYZO/IAAQQQPLfHkJCQQqe/aqGAvkGIrigAAAAASUVORK5CYII=)
+[二维码链接](https://raw.githubusercontent.com/Jinyang79/vue-m.maizuo/master/dist/qrcode.png)
+
+![](https://raw.githubusercontent.com/Jinyang79/vue-m.maizuo/master/dist/qrcode.png)
 
 
 
@@ -15,12 +17,12 @@
 ```
 src              # 源代码
 ├─api            # 所有请求
-├─assets         #字体等静态资源
+├─assets         # 字体，图片等静态资源
 ├─components     # 全局公用组件
 ├─filter         # 全局 filter
 ├─router         # 路由
 ├─store          # 全局 store管理 
-└─views          # 页面级直接
+└─views          # 页面级页面
 │  App.vue       # 入口页面
 │  main.js       # 入口文件
    

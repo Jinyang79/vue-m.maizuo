@@ -35,24 +35,14 @@
   </div>
 </template>
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   name: 'CinemaNavBar',
-  mounted () {
-    // this.dataList = this.getCityList(res.data.data.cities)
-    this.getCityList()
-  },
   computed: {
     ...mapGetters({
-      'cityName': 'city/cityName'
-    })
-  },
-  methods: {
-    ...mapActions({
-      getCityList: 'city/getCityList'
+      cityName: 'city/cityName'
     })
   }
-
 }
 </script>
 <style lang="scss" scoped>

@@ -31,7 +31,7 @@ export default {
       'cityName': 'city/cityName'
     })
   },
-  mounted () {
+  activated () {
     const id = localStorage.getItem('cityId')
     getHeaderSwiper(id).then(res => {
       console.log(res.data.data)
@@ -59,6 +59,7 @@ export default {
     }
   }
   .swipe-img {
+    height: 100%;
     width: 100%;
     margin: 6px auto;
   }

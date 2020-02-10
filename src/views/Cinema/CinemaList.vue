@@ -31,7 +31,7 @@ export default {
       cinemaList: state => state.cinema.cinemaList
     })
   },
-  mounted () {
+  activated () {
     this.getCinemaList()
   },
   methods: {

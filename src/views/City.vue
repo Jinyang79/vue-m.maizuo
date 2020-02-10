@@ -33,7 +33,7 @@
   </div>
 </template>
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 export default {
   data () {
     return {
@@ -47,24 +47,29 @@ export default {
     })
 
   },
-  beforeMount () {
+  activated () {
     this.$store.commit('city/hideTabbar', false)
   },
   mounted () {
     // this.dataList = this.getCityList(res.data.data.cities)
     this.getCityList()
   },
-  beforeDestroy () {
+  deactivated () {
     this.$store.commit('city/showTabbar', true)
   },
   methods: {
     ...mapActions({
       getCityList: 'city/getCityList'
     }),
+    ...mapMutations({
+      changeCity: 'city/changeCity'
+    }),
     handleClick (id) {
-      console.log(id)
+      // 修改存储的数据
+      this.changeCity(id)
+      // 将选中ID存储在本地
       localStorage.setItem('cityId', id)
-      // this.$router.push('/film')
+
       this.$router.go(-1)
     }
 

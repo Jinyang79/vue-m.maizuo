@@ -3,7 +3,9 @@
     <header-swiper ref="myswiper"></header-swiper>
     <film-nav-bar v-if="isFixed"></film-nav-bar>
     <film-header :class="isFixed ? 'fixed' : ''"></film-header>
-    <router-view />
+    <keep-alive>
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 

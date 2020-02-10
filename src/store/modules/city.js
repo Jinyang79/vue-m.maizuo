@@ -1,13 +1,14 @@
 import { getCity } from '@/api/city'
 import { Indicator } from 'mint-ui'
-import { HIDE_TABBAR, SHOW_TABBAR, CITY_LIST } from '../mutation-types'
+import { HIDE_TABBAR, SHOW_TABBAR, CITY_LIST, CHANGE_CITY } from '../mutation-types'
 const city = {
   namespaced: true,
   state: {
     // 控制tabbar显示
     isTabbarShow: true,
     // 城市列表
-    cityList: []
+    cityList: localStorage.getItem('cityList') ? JSON.parse(localStorage.getItem('cityList')) : [],
+    cityId: localStorage.getItem('cityId') ? localStorage.getItem('cityId') - 0 : 420100
   },
   mutations: {
     [HIDE_TABBAR] (state, data) {
@@ -18,6 +19,9 @@ const city = {
     },
     [CITY_LIST] (state, data) {
       state.cityList = data
+    },
+    [CHANGE_CITY] (state, data) {
+      state.cityId = data
     }
   },
   actions: {
@@ -26,6 +30,7 @@ const city = {
       getCity().then(res => {
         // console.log(res.data.data.cities)
         // this.dataList = this.getCityList(res.data.data.cities)
+        window.localStorage.setItem('cityList', JSON.stringify(res.data.data.cities))
         store.commit(CITY_LIST, res.data.data.cities)
         Indicator.close()
       })
@@ -58,9 +63,9 @@ const city = {
     },
     // 当前城市
     cityName (state) {
-      const id = parseInt(localStorage.getItem('cityId'))
-      console.log(id)
-      return state.cityList.find(item => item.cityId === id)
+      console.log(state.cityId)
+
+      return state.cityList.find(item => item.cityId === state.cityId)
     }
   }
 }

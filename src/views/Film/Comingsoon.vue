@@ -35,19 +35,22 @@ export default {
   data () {
     return {
       // dataList: []
+      prevCityId: -1
     }
   },
   computed: {
     ...mapState({
-      comingSoonList: state => state.film.comingSoonList
+      comingSoonList: state => state.film.comingSoonList,
+      cityId: state => state.city.cityId
     })
   },
-  mounted () {
+  activated () {
     // 判断是否用缓存数据
-    if (this.comingSoonList.length === 0) {
-      this.getComingSoonList()
+    if (this.prevCityId === this.cityId) {
     } else {
-      console.log('使用缓存数据')
+      this.getComingSoonList()
+      console.log(1)
+      this.prevCityId = this.cityId
     }
   },
   methods: {

@@ -52,9 +52,7 @@ export default {
       filmInfo: null
     }
   },
-  beforeMount () {
-    //   console.log('触发事件')
-    //   eventBus.$emit('maizuo', false)
+  activated () {
     this.$store.commit('city/hideTabbar', false)
   },
   mounted () {
@@ -64,10 +62,10 @@ export default {
       this.filmInfo = res.data.data.film
     })
   },
-  beforeDestroy () {
-    //   console.log('销毁事件')
+  deactivated () {
     //   eventBus.$emit('maizuo', true)
     this.$store.commit('city/showTabbar', true)
+    console.log('销毁事件')
   },
   methods: {
     goBack () {

@@ -41,19 +41,23 @@ export default {
   name: 'Nowplaying',
   data () {
     return {
-      // dataList: []
+      prevCityId: -1
     }
   },
   computed: {
     ...mapState({
-      nowPlayingList: state => state.film.nowPlayingList
+      nowPlayingList: state => state.film.nowPlayingList,
+      // nowPlayingList: 'film/nowPlayingList',
+      cityId: state => state.city.cityId
+      // cityId: 'city/cityId'
     })
   },
-  mounted () {
-    if (this.nowPlayingList.length === 0) {
-      this.getNowPlayingList()
+  activated () {
+    if (this.prevCityId === this.cityId) {
+      console.log(1)
     } else {
-      console.log('使用缓存数据')
+      this.getNowPlayingList()
+      this.prevCityId = this.cityId
     }
   },
   methods: {
