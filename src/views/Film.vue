@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     hanleScroll () {
-      if (document.documentElement.scrollTop >= 195) {
+      if (document.documentElement.scrollTop >= 200) {
         this.isFixed = true
       } else {
         this.isFixed = false

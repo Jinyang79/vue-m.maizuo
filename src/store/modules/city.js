@@ -8,7 +8,8 @@ const city = {
     isTabbarShow: true,
     // 城市列表
     cityList: localStorage.getItem('cityList') ? JSON.parse(localStorage.getItem('cityList')) : [],
-    cityId: localStorage.getItem('cityId') ? localStorage.getItem('cityId') - 0 : 420100
+    // 当前选择城市的 ID
+    cityId: localStorage.getItem('cityId') ? localStorage.getItem('cityId') - 0 : ''
   },
   mutations: {
     [HIDE_TABBAR] (state, data) {
@@ -57,14 +58,13 @@ const city = {
       console.log(newList)
       return newList
     },
-    /* 热门城市列表 */
+    // 热门城市列表
     hotCity (state) {
       return state.cityList.filter(item => item.isHot)
     },
     // 当前城市
     cityName (state) {
       console.log(state.cityId)
-
       return state.cityList.find(item => item.cityId === state.cityId)
     }
   }

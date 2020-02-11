@@ -1,11 +1,10 @@
 <template>
   <div class="page-city">
     <div class="header">
-      <router-link tag="div"
-                   to="/cinema"
-                   class="header_left">
+      <div @click="isCity"
+           class="header_left">
         <i class="iconfont iconchazi"></i>
-      </router-link>
+      </div>
       <div class="header_title">当前城市 - {{ cityName  && cityName.name }}</div>
     </div>
     <div class="hot-city">
@@ -34,6 +33,7 @@
 </template>
 <script>
 import { mapActions, mapGetters, mapMutations } from 'vuex'
+import { MessageBox } from 'mint-ui'
 export default {
   data () {
     return {
@@ -45,7 +45,6 @@ export default {
       hotCity: 'city/hotCity',
       cityName: 'city/cityName'
     })
-
   },
   activated () {
     this.$store.commit('city/hideTabbar', false)
@@ -58,6 +57,12 @@ export default {
     this.$store.commit('city/showTabbar', true)
   },
   methods: {
+    isCity () {
+      MessageBox({
+        message: '请选择您所在城市哦',
+        showCancelButton: true
+      })
+    },
     ...mapActions({
       getCityList: 'city/getCityList'
     }),

@@ -39,6 +39,7 @@
 import { getDetail } from '@/api/film/detail'
 import ActorSwiper from './Detail/ActorSwiper'
 import PhotoSwiper from './Detail/PhotoSwiper'
+import { Indicator } from 'mint-ui'
 // import eventBus from '@/eventbus'
 export default {
   name: 'Detail',
@@ -53,13 +54,12 @@ export default {
     }
   },
   activated () {
+    Indicator.open()
     this.$store.commit('city/hideTabbar', false)
-  },
-  mounted () {
-    console.log(this.id)
     getDetail(this.id).then(res => {
       console.log(res.data)
       this.filmInfo = res.data.data.film
+      Indicator.close()
     })
   },
   deactivated () {
