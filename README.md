@@ -6,8 +6,9 @@
 
 ## 推荐浏览器扫码预览📷
 
-![](https://ae01.alicdn.com/kf/H1429dabd25884d33bb599ac246fe1fc2R.png)
+[二维码链接](https://ae01.alicdn.com/kf/H1429dabd25884d33bb599ac246fe1fc2R.png)
 
+![二维码](https://ae01.alicdn.com/kf/H1429dabd25884d33bb599ac246fe1fc2R.png)
 
 
 ## 目录结构🌳
