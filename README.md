@@ -6,9 +6,7 @@
 
 ## 推荐浏览器扫码预览📷
 
-[二维码链接](https://raw.githubusercontent.com/Jinyang79/vue-m.maizuo/master/dist/qrcode.png)
-
-![](https://raw.githubusercontent.com/Jinyang79/vue-m.maizuo/master/dist/qrcode.png)
+![](https://ae01.alicdn.com/kf/H1429dabd25884d33bb599ac246fe1fc2R.png)
 
 
 
